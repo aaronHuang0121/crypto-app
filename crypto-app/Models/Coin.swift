@@ -25,18 +25,19 @@ struct Coin: Identifiable, Codable, Equatable {
     let marketCapChangePercentage24H: Double
     let circulatingSupply: Double
     let totalSupply: Double
-    let maxSupply: Double
+    let maxSupply: Double?
     let ath: Double
     let athChangePercentage: Double
     let athDate: Date
     let atl: Double
     let atlChangePercentage: Double
     let atlDate: Date
-    var roi: String?
+    var roi: ROI?
     let lastUpdated: Date
     var priceChangePercentage1H: Double?
     var sparklineIn7D: SparkineIn7D?
     var currentHoldings: Double?
+    var priceChangePercentage24hInCurrency: Double?
 
     enum CodingKeys: String, CodingKey {
         case id, symbol, name, image
@@ -65,6 +66,7 @@ struct Coin: Identifiable, Codable, Equatable {
         case priceChangePercentage1H = "price_change_percentage_1h"
         case sparklineIn7D = "sparkline_in_7d"
         case currentHoldings
+        case priceChangePercentage24hInCurrency = "price_change_percentage_24h_in_currency"
     }
 }
 
@@ -86,6 +88,12 @@ extension Coin {
 
 struct SparkineIn7D: Codable, Equatable {
     let prices: [Double]?
+}
+
+struct ROI: Codable, Equatable {
+    let times: Double
+    let currency: String
+    let percentage: Double
 }
 
 extension Coin {

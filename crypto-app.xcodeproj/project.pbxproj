@@ -23,6 +23,11 @@
 		93E783532C78323200684BEC /* Double+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783522C78323200684BEC /* Double+Currency.swift */; };
 		93E783562C78392500684BEC /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783552C78392500684BEC /* Device.swift */; };
 		93E783592C78659C00684BEC /* CoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783582C78659C00684BEC /* CoinTests.swift */; };
+		93E7835B2C78745B00684BEC /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7835A2C78745B00684BEC /* Rest.swift */; };
+		93E7835E2C78766700684BEC /* GetCoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7835D2C78766700684BEC /* GetCoins.swift */; };
+		93E783602C78796600684BEC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7835F2C78796600684BEC /* NetworkManager.swift */; };
+		93E783622C787E9000684BEC /* JSONDecorder+JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783612C787E9000684BEC /* JSONDecorder+JSONEncoder.swift */; };
+		93E783642C78939D00684BEC /* Encodable+toQueryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783632C78939D00684BEC /* Encodable+toQueryItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,11 @@
 		93E783522C78323200684BEC /* Double+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Currency.swift"; sourceTree = "<group>"; };
 		93E783552C78392500684BEC /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		93E783582C78659C00684BEC /* CoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTests.swift; sourceTree = "<group>"; };
+		93E7835A2C78745B00684BEC /* Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest.swift; sourceTree = "<group>"; };
+		93E7835D2C78766700684BEC /* GetCoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoins.swift; sourceTree = "<group>"; };
+		93E7835F2C78796600684BEC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		93E783612C787E9000684BEC /* JSONDecorder+JSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecorder+JSONEncoder.swift"; sourceTree = "<group>"; };
+		93E783632C78939D00684BEC /* Encodable+toQueryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+toQueryItems.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				93E7834C2C782D9300684BEC /* Coin.swift */,
+				93E7835A2C78745B00684BEC /* Rest.swift */,
+				93E7835C2C78765400684BEC /* APIs */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				93E783522C78323200684BEC /* Double+Currency.swift */,
+				93E783612C787E9000684BEC /* JSONDecorder+JSONEncoder.swift */,
+				93E783632C78939D00684BEC /* Encodable+toQueryItems.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				93E783552C78392500684BEC /* Device.swift */,
+				93E7835F2C78796600684BEC /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -232,6 +247,14 @@
 				93E783582C78659C00684BEC /* CoinTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		93E7835C2C78765400684BEC /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				93E7835D2C78766700684BEC /* GetCoins.swift */,
+			);
+			path = APIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,11 +388,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E783432C77519F00684BEC /* CircleButton.swift in Sources */,
+				93E783642C78939D00684BEC /* Encodable+toQueryItems.swift in Sources */,
 				93E7833D2C77510400684BEC /* HomeView.swift in Sources */,
+				93E783622C787E9000684BEC /* JSONDecorder+JSONEncoder.swift in Sources */,
 				93E783502C78306F00684BEC /* CoinCell.swift in Sources */,
+				93E783602C78796600684BEC /* NetworkManager.swift in Sources */,
 				93E783532C78323200684BEC /* Double+Currency.swift in Sources */,
 				93978C1A2C774E110070F3D4 /* ContentView.swift in Sources */,
+				93E7835E2C78766700684BEC /* GetCoins.swift in Sources */,
 				93978C182C774E110070F3D4 /* CryptoApp.swift in Sources */,
+				93E7835B2C78745B00684BEC /* Rest.swift in Sources */,
 				93E783462C77581200684BEC /* CircleButtonAnimation.swift in Sources */,
 				93E7833F2C77510D00684BEC /* HomeViewModel.swift in Sources */,
 				93E7834D2C782D9300684BEC /* Coin.swift in Sources */,

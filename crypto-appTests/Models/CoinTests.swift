@@ -53,17 +53,7 @@ final class CoinTests: XCTestCase {
         """
             .data(using: .utf8)!
         
-        let decoder = JSONDecoder()      
-        let dateFormatter = ISO8601DateFormatter()
-        dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        decoder.dateDecodingStrategy = .custom({ decoder in
-            let container = try decoder.singleValueContainer()
-            let dateString = try container.decode(String.self)
-            guard let date = dateFormatter.date(from: dateString) else {
-                throw DecodingError.dataCorruptedError(in: container, debugDescription: "")
-            }
-            return date
-        })
+        let decoder = JSONDecoder.default
         let decoded = try decoder.decode(Coin.self, from: jsonData)
         XCTAssertEqual(decoded.id, mock.id)
         XCTAssertEqual(decoded.symbol, mock.symbol)
@@ -98,8 +88,8 @@ final class CoinTests: XCTestCase {
     
     func test_encodeJson_coin_shouldSucceed() throws {
         let mock = Coin.mock
-        let jsonData = try JSONEncoder().encode(mock)
-        let decoded = try JSONDecoder().decode(Coin.self, from: jsonData)
+        let jsonData = try JSONEncoder.default.encode(mock)
+        let decoded = try JSONDecoder.default.decode(Coin.self, from: jsonData)
         
         XCTAssertEqual(decoded.id, mock.id)
         XCTAssertEqual(decoded.symbol, mock.symbol)

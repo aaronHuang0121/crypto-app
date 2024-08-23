@@ -49,7 +49,7 @@ extension HomeView {
             
             Spacer()
             
-            Text("Portfolio")
+            Text(viewModel.showPortolio ? "Portfolio" : "Live Prices")
                 .font(.headline)
                 .fontWeight(.heavy)
                 .foregroundStyle(.accent)
