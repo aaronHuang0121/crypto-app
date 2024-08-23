@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Coin: Identifiable, Codable {
+struct Coin: Identifiable, Codable, Equatable {
     let id: String
     let symbol: String
     let name: String
@@ -84,7 +84,7 @@ extension Coin {
     }
 }
 
-struct SparkineIn7D: Codable {
+struct SparkineIn7D: Codable, Equatable {
     let prices: [Double]?
 }
 
@@ -110,12 +110,12 @@ extension Coin {
         maxSupply: 21000000,
         ath: 73738,
         athChangePercentage: -4.77063,
-        athDate: Date(timeIntervalSince1970: 1713078636),
+        athDate: Date(timeIntervalSince1970: 1710400236.635),
         atl: 67.81,
         atlChangePercentage: 103455.83335,
         atlDate: Date(timeIntervalSince1970: 1373068800),
         roi: nil,
-        lastUpdated: Date(timeIntervalSince1970: 1712508571),
+        lastUpdated: Date(timeIntervalSince1970: 1712508571.736),
         priceChangePercentage1H: nil,
         sparklineIn7D: nil,
         currentHoldings: nil

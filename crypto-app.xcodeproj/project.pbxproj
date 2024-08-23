@@ -22,6 +22,7 @@
 		93E783502C78306F00684BEC /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7834F2C78306F00684BEC /* CoinCell.swift */; };
 		93E783532C78323200684BEC /* Double+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783522C78323200684BEC /* Double+Currency.swift */; };
 		93E783562C78392500684BEC /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783552C78392500684BEC /* Device.swift */; };
+		93E783592C78659C00684BEC /* CoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783582C78659C00684BEC /* CoinTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		93E7834F2C78306F00684BEC /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		93E783522C78323200684BEC /* Double+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Currency.swift"; sourceTree = "<group>"; };
 		93E783552C78392500684BEC /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		93E783582C78659C00684BEC /* CoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				93978C282C774E110070F3D4 /* crypto_appTests.swift */,
+				93E783572C78657F00684BEC /* Models */,
 			);
 			path = "crypto-appTests";
 			sourceTree = "<group>";
@@ -221,6 +224,14 @@
 				93E783552C78392500684BEC /* Device.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		93E783572C78657F00684BEC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93E783582C78659C00684BEC /* CoinTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E783592C78659C00684BEC /* CoinTests.swift in Sources */,
 				93978C292C774E110070F3D4 /* crypto_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
