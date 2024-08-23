@@ -9,11 +9,25 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
+    @Environment(\.device) private var device
 
     var body: some View {
         VStack {
             Header()
+            
+            ColumnHeader()
 
+            Group {
+                if viewModel.showPortolio {
+                    CoinList(viewModel.portolioCoins)
+                        .transition(.move(edge: .trailing))
+                } else {
+                    CoinList(viewModel.allCoins)
+                        .transition(.move(edge: .leading))
+                }
+            }
+            .animation(.spring, value: viewModel.showPortolio)
+            
             Spacer()
         }
         .navigationBarBackButtonHidden()
@@ -28,10 +42,10 @@ extension HomeView {
                 systemName: viewModel.showPortolio ? "plus" : "info",
                 action: {}
             )
-                .background {
-                    CircleButtonAnimation(animate: $viewModel.showPortolio)
-                }
-                .animation(.none, value: viewModel.showPortolio)
+            .background {
+                CircleButtonAnimation(animate: $viewModel.showPortolio)
+            }
+            .animation(.none, value: viewModel.showPortolio)
             
             Spacer()
             
@@ -52,6 +66,30 @@ extension HomeView {
             .animation(.spring, value: viewModel.showPortolio)
         }
         .padding(.horizontal)
+    }
+    
+    @ViewBuilder
+    private func ColumnHeader() -> some View {
+        HStack {
+            Text("Coin")
+            Spacer()
+            if viewModel.showPortolio {
+                Text("Holdings")
+            }
+            Text("Price")
+                .frame(width: device.safeAreaWidth / 3.5, alignment: .trailing)
+        }
+        .foregroundStyle(.secondaryText)
+        .padding(.horizontal)
+    }
+    
+    @ViewBuilder
+    private func CoinList(_ coins: [Coin]) -> some View {
+        List(coins) { coin in
+            CoinCell(coin: coin, showHoldingColumns: viewModel.showPortolio)
+                .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+        }
+        .listStyle(.plain)
     }
 }
 

@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class HomeViewModel: ObservableObject {
     @Published var showPortolio: Bool = false
+    @Published var allCoins: [Coin] = [.mock]
+    @Published var portolioCoins: [Coin] = [.mock]
     
     func onShowPortfolio() -> Void {
         showPortolio.toggle()
