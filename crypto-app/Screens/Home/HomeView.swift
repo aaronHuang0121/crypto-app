@@ -15,6 +15,8 @@ struct HomeView: View {
         VStack {
             Header()
             
+            SearchBar(searchKey: $viewModel.searchKey)
+            
             ColumnHeader()
 
             Group {

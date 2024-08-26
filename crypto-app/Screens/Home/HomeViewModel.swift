@@ -13,6 +13,7 @@ final class HomeViewModel: ObservableObject {
     @Published var showPortolio: Bool = false
     @Published var allCoins: [Coin] = []
     @Published var portolioCoins: [Coin] = []
+    @Published var searchKey: String = ""
     
     var cancellables: AnyCancellable?
     
