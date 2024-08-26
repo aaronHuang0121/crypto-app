@@ -41,8 +41,9 @@ extension CoinCell {
             .font(.caption)
             .foregroundStyle(.secondaryText)
             .frame(minWidth: 30)
-        
-        Circle()
+
+        RemoteImage(url: coin.image)
+            .aspectRatio(contentMode: .fit)
             .frame(width: 30)
         
         Text(coin.symbol.uppercased())

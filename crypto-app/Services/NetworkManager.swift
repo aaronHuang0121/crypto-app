@@ -7,15 +7,19 @@
 
 import Combine
 import Foundation
+import UIKit
 
 final class NetworkManager: RestProtocol {
     static let shared = NetworkManager()
     private let session: URLSession
-    private
     
     init() {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 10   // 10s
+        config.urlCache = .init(
+            memoryCapacity: 20 * 1024 * 1024,
+            diskCapacity: 30 * 1024 * 1024
+        )
         self.session = URLSession(configuration: config)
     }
     
@@ -41,8 +45,8 @@ final class NetworkManager: RestProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod
 
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         // Test token
         request.addValue("x-cg-pro-api-key", forHTTPHeaderField: "CG-xdZphsCURzUJ7vfSbVJV6YDD")
         
@@ -85,6 +89,52 @@ final class NetworkManager: RestProtocol {
             return Fail(error: error)
                 .eraseToAnyPublisher()
         }
+    }
+    
+    func downloadImage(_ url: URL) -> AnyPublisher<UIImage, RestError> {
+        let request = URLRequest(url: url)
+        if let uiImage = getImageFromCache(url) {
+            return Just(uiImage)
+                .setFailureType(to: RestError.self)
+                .eraseToAnyPublisher()
+        }
+        
+        return self.session.dataTaskPublisher(for: request)
+            .subscribe(on: DispatchQueue.global(qos: .default))
+            .tryMap { (data, response) in
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    throw RestError.invalidResponse(0)
+                }
+                
+                guard 200..<300 ~= httpResponse.statusCode else {
+                    throw RestError.invalidResponse(httpResponse.statusCode)
+                }
+                
+                guard let uiImage = UIImage(data: data) else {
+                    throw RestError.invalidData
+                }
+
+                return uiImage
+            }
+            .receive(on: DispatchQueue.main)
+            .mapError({ error in
+                if let error = error as? RestError {
+                    return error
+                } else {
+                    return RestError.unknowError(error)
+                }
+            })
+            .eraseToAnyPublisher()
+    }
+
+    func getImageFromCache(_ url: URL) -> UIImage? {
+        let request = URLRequest(url: url)
+        guard let cache = self.session.configuration.urlCache?.cachedResponse(for: request)?.data,
+           let uiImage = UIImage(data: cache) else {
+            return nil
+        }
+
+        return uiImage
     }
 }
 

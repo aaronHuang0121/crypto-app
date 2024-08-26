@@ -28,6 +28,7 @@
 		93E783602C78796600684BEC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7835F2C78796600684BEC /* NetworkManager.swift */; };
 		93E783622C787E9000684BEC /* JSONDecorder+JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783612C787E9000684BEC /* JSONDecorder+JSONEncoder.swift */; };
 		93E783642C78939D00684BEC /* Encodable+toQueryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783632C78939D00684BEC /* Encodable+toQueryItems.swift */; };
+		93E783682C78B22C00684BEC /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783672C78B22C00684BEC /* RemoteImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		93E7835F2C78796600684BEC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		93E783612C787E9000684BEC /* JSONDecorder+JSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecorder+JSONEncoder.swift"; sourceTree = "<group>"; };
 		93E783632C78939D00684BEC /* Encodable+toQueryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+toQueryItems.swift"; sourceTree = "<group>"; };
+		93E783672C78B22C00684BEC /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			children = (
 				93E783412C77519300684BEC /* Buttons */,
 				93E7834E2C78305D00684BEC /* Cells */,
+				93E783672C78B22C00684BEC /* RemoteImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				93E7835E2C78766700684BEC /* GetCoins.swift in Sources */,
 				93978C182C774E110070F3D4 /* CryptoApp.swift in Sources */,
 				93E7835B2C78745B00684BEC /* Rest.swift in Sources */,
+				93E783682C78B22C00684BEC /* RemoteImage.swift in Sources */,
 				93E783462C77581200684BEC /* CircleButtonAnimation.swift in Sources */,
 				93E7833F2C77510D00684BEC /* HomeViewModel.swift in Sources */,
 				93E7834D2C782D9300684BEC /* Coin.swift in Sources */,
