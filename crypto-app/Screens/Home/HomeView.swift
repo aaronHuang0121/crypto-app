@@ -24,7 +24,7 @@ struct HomeView: View {
                     CoinList(viewModel.portolioCoins)
                         .transition(.move(edge: .trailing))
                 } else {
-                    CoinList(viewModel.allCoins)
+                    CoinList(viewModel.filterCoins)
                         .transition(.move(edge: .leading))
                 }
             }

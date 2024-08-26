@@ -42,6 +42,8 @@ final class NetworkManager: RestProtocol {
             return .failure(.invalidURL(Rest.baseURL + endpoint))
         }
         
+        Rest.logger.log("\(httpMethod) \(url.absoluteString)")
+        
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod
 
