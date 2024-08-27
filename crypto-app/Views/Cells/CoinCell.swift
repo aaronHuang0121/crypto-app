@@ -58,7 +58,7 @@ extension CoinCell {
             VStack(alignment: .trailing) {
                 Text(coin.currentHoldingValue.asCurrencyWith2Decimals())
                     .bold()
-                Text((coin.currentHoldings ?? 0).asCurrencyWith2Decimals())
+                Text(String(format: "%.2f", (coin.currentHoldings ?? 0)))
             }
             .foregroundStyle(.accent)
         }

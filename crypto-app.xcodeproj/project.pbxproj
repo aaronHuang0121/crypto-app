@@ -15,6 +15,8 @@
 		93701DF22C7DB4D800C020F5 /* PortolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93701DF12C7DB4D800C020F5 /* PortolioView.swift */; };
 		93701DF42C7DB7B400C020F5 /* CoinLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93701DF32C7DB7B400C020F5 /* CoinLogo.swift */; };
 		93701DF62C7DB8AB00C020F5 /* PortolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93701DF52C7DB8AB00C020F5 /* PortolioViewModel.swift */; };
+		93701DFA2C7DCAD900C020F5 /* PortolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93701DF82C7DCAD900C020F5 /* PortolioContainer.xcdatamodeld */; };
+		93701DFC2C7DCB7B00C020F5 /* PortolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93701DFB2C7DCB7B00C020F5 /* PortolioDataService.swift */; };
 		93978C182C774E110070F3D4 /* CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93978C172C774E110070F3D4 /* CryptoApp.swift */; };
 		93978C1A2C774E110070F3D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93978C192C774E110070F3D4 /* ContentView.swift */; };
 		93978C1C2C774E110070F3D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93978C1B2C774E110070F3D4 /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		93701DF12C7DB4D800C020F5 /* PortolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortolioView.swift; sourceTree = "<group>"; };
 		93701DF32C7DB7B400C020F5 /* CoinLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogo.swift; sourceTree = "<group>"; };
 		93701DF52C7DB8AB00C020F5 /* PortolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortolioViewModel.swift; sourceTree = "<group>"; };
+		93701DF92C7DCAD900C020F5 /* PortolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		93701DFB2C7DCB7B00C020F5 /* PortolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortolioDataService.swift; sourceTree = "<group>"; };
 		93978C142C774E110070F3D4 /* crypto-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "crypto-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93978C172C774E110070F3D4 /* CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApp.swift; sourceTree = "<group>"; };
 		93978C192C774E110070F3D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,6 +128,14 @@
 				93701DF52C7DB8AB00C020F5 /* PortolioViewModel.swift */,
 			);
 			path = Portolio;
+			sourceTree = "<group>";
+		};
+		93701DF72C7DCAA400C020F5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				93701DF82C7DCAD900C020F5 /* PortolioContainer.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		93978C0B2C774E110070F3D4 = {
@@ -191,8 +203,8 @@
 		93E7833A2C7750F300684BEC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				93701DF02C7DB4C100C020F5 /* Portolio */,
 				93E7833B2C7750F900684BEC /* Home */,
+				93701DF02C7DB4C100C020F5 /* Portolio */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -242,6 +254,7 @@
 				93E7835A2C78745B00684BEC /* Rest.swift */,
 				93701DE82C7DA7AA00C020F5 /* Statistic.swift */,
 				93E7835C2C78765400684BEC /* APIs */,
+				93701DF72C7DCAA400C020F5 /* CoreData */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,8 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				93E7834F2C78306F00684BEC /* CoinCell.swift */,
-				93701DEA2C7DA83F00C020F5 /* StatisticCell.swift */,
 				93701DF32C7DB7B400C020F5 /* CoinLogo.swift */,
+				93701DEA2C7DA83F00C020F5 /* StatisticCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -272,6 +285,7 @@
 			children = (
 				93E783552C78392500684BEC /* Device.swift */,
 				93E7835F2C78796600684BEC /* NetworkManager.swift */,
+				93701DFB2C7DCB7B00C020F5 /* PortolioDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -427,6 +441,7 @@
 				93E7833D2C77510400684BEC /* HomeView.swift in Sources */,
 				93E783622C787E9000684BEC /* JSONDecorder+JSONEncoder.swift in Sources */,
 				93E783502C78306F00684BEC /* CoinCell.swift in Sources */,
+				93701DFA2C7DCAD900C020F5 /* PortolioContainer.xcdatamodeld in Sources */,
 				93701DEB2C7DA83F00C020F5 /* StatisticCell.swift in Sources */,
 				93701DF62C7DB8AB00C020F5 /* PortolioViewModel.swift in Sources */,
 				93701DE92C7DA7AA00C020F5 /* Statistic.swift in Sources */,
@@ -434,6 +449,7 @@
 				93701DF42C7DB7B400C020F5 /* CoinLogo.swift in Sources */,
 				93E783602C78796600684BEC /* NetworkManager.swift in Sources */,
 				93701DED2C7DAB8400C020F5 /* StatisticsRow.swift in Sources */,
+				93701DFC2C7DCB7B00C020F5 /* PortolioDataService.swift in Sources */,
 				93E783532C78323200684BEC /* Double+Currency.swift in Sources */,
 				93978C1A2C774E110070F3D4 /* ContentView.swift in Sources */,
 				93E7835E2C78766700684BEC /* GetCoins.swift in Sources */,
@@ -776,6 +792,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		93701DF82C7DCAD900C020F5 /* PortolioContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93701DF92C7DCAD900C020F5 /* PortolioContainer.xcdatamodel */,
+			);
+			currentVersion = 93701DF92C7DCAD900C020F5 /* PortolioContainer.xcdatamodel */;
+			name = PortolioContainer.xcdatamodeld;
+			path = "/Users/aaron/Documents/Projects/Tutorial/crypto-app/crypto-app/Models/CoreData/PortolioContainer.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 93978C0C2C774E110070F3D4 /* Project object */;
 }

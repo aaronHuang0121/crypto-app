@@ -45,9 +45,11 @@ extension PortolioViewModel {
     }
     
     func onSave() -> Void {
-        guard let selectedCoin else {
+        guard let selectedCoin, let amount = Double(quantityText) else {
             return
         }
+        
+        PortolioDataService.shared.updatePortolio(selectedCoin, amount: amount)
         
         withAnimation(.easeIn) {
             showCheckmark = true
@@ -65,5 +67,17 @@ extension PortolioViewModel {
     
     private func removeSelectedCoin() -> Void {
         selectedCoin = nil
+    }
+
+    func updatedSelectedCoin(_ coin: Coin?, portolios: [Coin]) {
+        guard let coin else {
+            return
+        }
+        
+        if let defaultCoin = portolios.first(where: { $0.id == coin.id }), let amount = defaultCoin.currentHoldings {
+            quantityText = "\(amount)"
+        } else {
+            quantityText = ""
+        }
     }
 }

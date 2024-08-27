@@ -5,6 +5,7 @@
 //  Created by Aaron on 2024/8/27.
 //
 
+import Combine
 import SwiftUI
 
 struct PortolioView: View {
@@ -42,8 +43,12 @@ struct PortolioView: View {
                     TrailingToolbarItem()
                 }
             }
-            
         }
+        .onReceive(
+            viewModel.$selectedCoin
+                .combineLatest(homeViewModel.$portolioCoins),
+            perform: viewModel.updatedSelectedCoin
+        )
     }
 }
 
@@ -52,7 +57,12 @@ extension PortolioView {
     private func CoinList() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
-                ForEach(homeViewModel.filterCoins) { coin in
+                ForEach(
+                    homeViewModel.searchKey.isEmpty
+                        ? homeViewModel.portolioCoins
+                        : homeViewModel.filterCoins,
+                    id: \.id
+                ) { coin in
                     CoinLogo(coin: coin, isSelected: viewModel.isSelectedCoin(coin: coin))
                         .frame(height: 105)
                         .gesture(
@@ -61,6 +71,9 @@ extension PortolioView {
                                     viewModel.onSelectCoin(coin)
                                 })
                         )
+                        .onAppear {
+                            print(coin.id)
+                        }
                 }
             }
             .padding(.vertical, 4)

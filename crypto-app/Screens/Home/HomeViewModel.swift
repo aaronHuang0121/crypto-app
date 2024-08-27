@@ -39,13 +39,39 @@ final class HomeViewModel: ObservableObject {
                 receiveCompletion: {
                     switch $0 {
                     case .finished:
-                        print("finished")
+                        break
                     case .failure(let error):
                         print("subscribe error: \(error.localizedDescription)")
                     }
                 },
                 receiveValue: { [weak self] coins in
                     self?.filterCoins = coins
+                }
+            )
+            .store(in: &cancellables)
+        
+        $allCoins
+            .combineLatest(PortolioDataService.shared.$saveEntities)
+            .map { coins, portolios in
+                portolios
+                    .compactMap({ portolio -> Coin? in
+                        guard var coin = coins.first(where: { $0.id == portolio.coinId }) else {
+                            return nil
+                        }
+                        return coin.updateHoldings(portolio.amount)
+                    })
+            }
+            .sink(
+                receiveCompletion: {
+                    switch $0 {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print("Portolios subscribe error: \(error.localizedDescription)")
+                    }
+                },
+                receiveValue: { [weak self] coins in
+                    self?.portolioCoins = coins
                 }
             )
             .store(in: &cancellables)
