@@ -88,18 +88,41 @@ extension HomeView {
             }
             Text("Price")
                 .frame(width: device.safeAreaWidth / 3.5, alignment: .trailing)
+
+            Button(
+                action: viewModel.reload,
+                label: {
+                    Image(systemName: "goforward")
+                        .rotationEffect(.degrees(viewModel.isLoading ? 360 : 0))
+                }
+            )
+
         }
         .foregroundStyle(.secondaryText)
         .padding(.horizontal)
+        .font(.caption)
     }
     
     @ViewBuilder
     private func CoinList(_ coins: [Coin]) -> some View {
-        List(coins) { coin in
-            CoinCell(coin: coin, showHoldingColumns: viewModel.showPortolio)
-                .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+        ScrollViewReader { proxy in
+            List(coins) { coin in
+                CoinCell(coin: coin, showHoldingColumns: viewModel.showPortolio)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    .id(coin.id)
+            }
+            .listStyle(.plain)
+            .onReceive(
+                viewModel.$isLoading,
+                perform: { isLoading in
+                    if !isLoading {
+                        withAnimation(.linear) {
+                            proxy.scrollTo(coins.first?.id)
+                        }
+                    }
+                }
+            )
         }
-        .listStyle(.plain)
     }
 }
 

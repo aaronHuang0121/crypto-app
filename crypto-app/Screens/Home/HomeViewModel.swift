@@ -17,6 +17,7 @@ final class HomeViewModel: ObservableObject {
     @Published var portolioCoins: [Coin] = []
     @Published var statistics: [Statistic] = [.mock, .mock2, .mock3]
     @Published var searchKey: String = ""
+    @Published var isLoading: Bool = false
 
     var cancellables = Set<AnyCancellable>()
     
@@ -46,6 +47,7 @@ final class HomeViewModel: ObservableObject {
                 },
                 receiveValue: { [weak self] coins in
                     self?.filterCoins = coins
+                    self?.isLoading = false
                 }
             )
             .store(in: &cancellables)
@@ -78,6 +80,7 @@ final class HomeViewModel: ObservableObject {
     }
     
     private func getCoins() {
+        self.isLoading = true
         NetworkManager.shared
             .getCoins(
                 params: .init(
@@ -116,5 +119,11 @@ final class HomeViewModel: ObservableObject {
             .filter({ coin in
                 return coin.name.lowercased().contains(key) || coin.symbol.lowercased().contains(key) || coin.id.contains(key)
             })
+    }
+
+    func reload() -> Void {
+        withAnimation(.linear(duration: 2)) {
+            getCoins()
+        }
     }
 }
