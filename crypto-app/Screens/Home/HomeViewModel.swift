@@ -11,6 +11,7 @@ import SwiftUI
 
 final class HomeViewModel: ObservableObject {
     @Published var showPortolio: Bool = false
+    @Published var showPortolioView: Bool = false
     @Published var allCoins: [Coin] = []
     @Published var filterCoins: [Coin] = []
     @Published var portolioCoins: [Coin] = []

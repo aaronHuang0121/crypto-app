@@ -9,6 +9,17 @@ import SwiftUI
 
 @main
 struct CryptoApp: App {
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor(.accent)
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor(.accent)
+        ]
+    }
+    
     var body: some Scene {
         WindowGroup {
             GeometryReader { geometry in

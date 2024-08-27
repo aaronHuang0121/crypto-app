@@ -15,11 +15,6 @@ struct HomeView: View {
         VStack {
             Header()
             
-            StatisticsRow(
-                statistics: viewModel.statistics,
-                showPortolio: viewModel.showPortolio
-            )
-            
             SearchBar(searchKey: $viewModel.searchKey)
             
             ColumnHeader()
@@ -38,6 +33,10 @@ struct HomeView: View {
         }
         .navigationBarBackButtonHidden()
         .animation(.spring, value: viewModel.showPortolio)
+        .sheet(isPresented: $viewModel.showPortolioView) {
+            PortolioView()
+                .environmentObject(viewModel)
+        }
     }
 }
 
@@ -47,7 +46,11 @@ extension HomeView {
         HStack {
             CircleButton(
                 systemName: viewModel.showPortolio ? "plus" : "info",
-                action: {}
+                action: {
+                    if viewModel.showPortolio {
+                        viewModel.showPortolioView.toggle()
+                    }
+                }
             )
             .background {
                 CircleButtonAnimation(animate: $viewModel.showPortolio)
