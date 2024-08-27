@@ -14,6 +14,7 @@ final class HomeViewModel: ObservableObject {
     @Published var allCoins: [Coin] = []
     @Published var filterCoins: [Coin] = []
     @Published var portolioCoins: [Coin] = []
+    @Published var statistics: [Statistic] = [.mock, .mock2, .mock3]
     @Published var searchKey: String = ""
 
     var cancellables = Set<AnyCancellable>()

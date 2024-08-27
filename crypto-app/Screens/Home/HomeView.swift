@@ -15,6 +15,11 @@ struct HomeView: View {
         VStack {
             Header()
             
+            StatisticsRow(
+                statistics: viewModel.statistics,
+                showPortolio: viewModel.showPortolio
+            )
+            
             SearchBar(searchKey: $viewModel.searchKey)
             
             ColumnHeader()
@@ -28,11 +33,11 @@ struct HomeView: View {
                         .transition(.move(edge: .leading))
                 }
             }
-            .animation(.spring, value: viewModel.showPortolio)
             
             Spacer()
         }
         .navigationBarBackButtonHidden()
+        .animation(.spring, value: viewModel.showPortolio)
     }
 }
 
