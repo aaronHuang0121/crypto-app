@@ -17,7 +17,7 @@ struct HomeView: View {
             
             SearchBar(searchKey: $viewModel.searchKey)
             
-            ColumnHeader()
+            ColumnsHeader()
 
             Group {
                 if viewModel.showPortolio {
@@ -79,15 +79,32 @@ extension HomeView {
     }
     
     @ViewBuilder
-    private func ColumnHeader() -> some View {
+    private func ColumnsHeader() -> some View {
         HStack {
-            Text("Coin")
+            ColumnHeader(
+                title: "Coin",
+                showSortOption: viewModel.sortOption.isRank,
+                reversed: viewModel.sortOption.reversed,
+                action: { viewModel.onSort(.rank()) }
+            )
             Spacer()
+
             if viewModel.showPortolio {
-                Text("Holdings")
+                ColumnHeader(
+                    title: "Holdings",
+                    showSortOption: viewModel.sortOption.isHoldings,
+                    reversed: viewModel.sortOption.reversed,
+                    action: { viewModel.onSort(.holdings()) }
+                )
             }
-            Text("Price")
-                .frame(width: device.safeAreaWidth / 3.5, alignment: .trailing)
+
+            ColumnHeader(
+                title: "Price",
+                showSortOption: viewModel.sortOption.isPrice,
+                reversed: viewModel.sortOption.reversed,
+                action: { viewModel.onSort(.price()) }
+            )
+            .frame(width: device.safeAreaWidth / 3.5, alignment: .trailing)
 
             Button(
                 action: viewModel.reload,
@@ -101,6 +118,7 @@ extension HomeView {
         .foregroundStyle(.secondaryText)
         .padding(.horizontal)
         .font(.caption)
+        .animation(.default, value: viewModel.sortOption)
     }
     
     @ViewBuilder
