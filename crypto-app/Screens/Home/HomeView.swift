@@ -32,6 +32,12 @@ struct HomeView: View {
             Spacer()
         }
         .navigationBarBackButtonHidden()
+        .navigationDestination(
+            for: Coin.self,
+            destination: { coin in
+                DetailView(coin: coin)
+            }
+        )
         .animation(.spring, value: viewModel.showPortolio)
         .sheet(isPresented: $viewModel.showPortolioView) {
             PortolioView()
@@ -125,9 +131,14 @@ extension HomeView {
     private func CoinList(_ coins: [Coin]) -> some View {
         ScrollViewReader { proxy in
             List(coins) { coin in
-                CoinCell(coin: coin, showHoldingColumns: viewModel.showPortolio)
-                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
-                    .id(coin.id)
+                NavigationLink(
+                    value: coin,
+                    label: {
+                        CoinCell(coin: coin, showHoldingColumns: viewModel.showPortolio)
+                            .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                            .id(coin.id)
+                    }
+                )
             }
             .listStyle(.plain)
             .onReceive(

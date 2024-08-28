@@ -146,7 +146,7 @@ extension HomeViewModel {
     private func sortPortolios(coins: [Coin], entities: [PortolioEntity], option: SortOption) -> [Coin] {
         var portolios = entities
             .compactMap({ portolio -> Coin? in
-                guard var coin = coins.first(where: { $0.id == portolio.coinId }) else {
+                guard let coin = coins.first(where: { $0.id == portolio.coinId }) else {
                     return nil
                 }
                 return coin.updateHoldings(portolio.amount)

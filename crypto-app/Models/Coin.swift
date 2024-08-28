@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Coin: Identifiable, Codable, Equatable {
+struct Coin: Identifiable, Codable, Equatable, Hashable {
     let id: String
     let symbol: String
     let name: String
@@ -116,11 +116,11 @@ extension Coin {
     }
 }
 
-struct SparkineIn7D: Codable, Equatable {
+struct SparkineIn7D: Codable, Equatable, Hashable {
     let prices: [Double]?
 }
 
-struct ROI: Codable, Equatable {
+struct ROI: Codable, Equatable, Hashable {
     let times: Double
     let currency: String
     let percentage: Double
