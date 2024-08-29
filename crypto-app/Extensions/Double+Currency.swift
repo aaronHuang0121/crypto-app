@@ -29,4 +29,11 @@ extension Double {
         let number = NSNumber(value: self)
         return currencyFormatter2.string(from: number) ?? "$0.00"
     }
+    
+    func formattedWithAbbreviations() -> String {
+        let defaultStyle = FloatingPointFormatStyle<Double>(locale: Locale(identifier: "en_US"))
+            .notation(.compactName)
+            .precision(.fractionLength(2))
+        return self.formatted(defaultStyle)
+    }
 }

@@ -29,6 +29,8 @@
 		93DCDE3A2C7F25500012FD4E /* CoinDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE392C7F25500012FD4E /* CoinDetail.swift */; };
 		93DCDE3C2C7F27B80012FD4E /* CoinDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE3B2C7F27B80012FD4E /* CoinDetailTests.swift */; };
 		93DCDE3E2C7F318B0012FD4E /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE3D2C7F318B0012FD4E /* DetailViewModel.swift */; };
+		93DCDE402C8010130012FD4E /* GetCoinDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE3F2C8010130012FD4E /* GetCoinDetail.swift */; };
+		93DCDE432C801F750012FD4E /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE422C801F750012FD4E /* FormatterTests.swift */; };
 		93E7833D2C77510400684BEC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7833C2C77510400684BEC /* HomeView.swift */; };
 		93E7833F2C77510D00684BEC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7833E2C77510D00684BEC /* HomeViewModel.swift */; };
 		93E783432C77519F00684BEC /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783422C77519F00684BEC /* CircleButton.swift */; };
@@ -89,6 +91,8 @@
 		93DCDE392C7F25500012FD4E /* CoinDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetail.swift; sourceTree = "<group>"; };
 		93DCDE3B2C7F27B80012FD4E /* CoinDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailTests.swift; sourceTree = "<group>"; };
 		93DCDE3D2C7F318B0012FD4E /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		93DCDE3F2C8010130012FD4E /* GetCoinDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoinDetail.swift; sourceTree = "<group>"; };
+		93DCDE422C801F750012FD4E /* FormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
 		93E7833C2C77510400684BEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		93E7833E2C77510D00684BEC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		93E783422C77519F00684BEC /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				93978C282C774E110070F3D4 /* crypto_appTests.swift */,
+				93DCDE412C801F590012FD4E /* Extensions */,
 				93E783572C78657F00684BEC /* Models */,
 			);
 			path = "crypto-appTests";
@@ -217,6 +222,14 @@
 				93DCDE3D2C7F318B0012FD4E /* DetailViewModel.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		93DCDE412C801F590012FD4E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				93DCDE422C801F750012FD4E /* FormatterTests.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		93E7833A2C7750F300684BEC /* Screens */ = {
@@ -324,6 +337,7 @@
 		93E7835C2C78765400684BEC /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				93DCDE3F2C8010130012FD4E /* GetCoinDetail.swift */,
 				93E7835D2C78766700684BEC /* GetCoins.swift */,
 			);
 			path = APIs;
@@ -464,6 +478,7 @@
 				93E7833D2C77510400684BEC /* HomeView.swift in Sources */,
 				93E783622C787E9000684BEC /* JSONDecorder+JSONEncoder.swift in Sources */,
 				93E783502C78306F00684BEC /* CoinCell.swift in Sources */,
+				93DCDE402C8010130012FD4E /* GetCoinDetail.swift in Sources */,
 				93701DFA2C7DCAD900C020F5 /* PortolioContainer.xcdatamodeld in Sources */,
 				93701DEB2C7DA83F00C020F5 /* StatisticCell.swift in Sources */,
 				93701DF62C7DB8AB00C020F5 /* PortolioViewModel.swift in Sources */,
@@ -498,6 +513,7 @@
 			files = (
 				93DCDE3C2C7F27B80012FD4E /* CoinDetailTests.swift in Sources */,
 				93E783592C78659C00684BEC /* CoinTests.swift in Sources */,
+				93DCDE432C801F750012FD4E /* FormatterTests.swift in Sources */,
 				93978C292C774E110070F3D4 /* crypto_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

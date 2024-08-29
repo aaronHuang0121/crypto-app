@@ -151,4 +151,12 @@ extension NetworkManager {
             params: params
         )
     }
+    
+    func get<R>(endpoint: String) -> AnyPublisher<R, RestError> where R : Decodable {
+        request(
+            httpMethod: "GET",
+            endpoint: endpoint,
+            params: String?.none
+        )
+    }
 }

@@ -42,4 +42,8 @@ protocol RestProtocol {
         endpoint: String,
         params: P?
     ) -> AnyPublisher<R, RestError>
+
+    func get<R: Decodable>(
+        endpoint: String
+    ) -> AnyPublisher<R, RestError>
 }
