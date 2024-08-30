@@ -16,7 +16,7 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Spacer(minLength: 150)
+                CryptoChart(coin: viewModel.coin)
                 
                 StatisticSection(
                     title: "Overview",

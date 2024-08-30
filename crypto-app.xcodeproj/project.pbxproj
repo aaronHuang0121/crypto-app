@@ -31,6 +31,9 @@
 		93DCDE402C8010130012FD4E /* GetCoinDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE3F2C8010130012FD4E /* GetCoinDetail.swift */; };
 		93DCDE432C801F750012FD4E /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE422C801F750012FD4E /* FormatterTests.swift */; };
 		93DCDE462C8164070012FD4E /* PortolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE442C8164070012FD4E /* PortolioContainer.xcdatamodeld */; };
+		93DCDE482C8167460012FD4E /* CryptoChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE472C8167460012FD4E /* CryptoChart.swift */; };
+		93DCDE4A2C81707D0012FD4E /* Date+toArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE492C81707D0012FD4E /* Date+toArray.swift */; };
+		93DCDE4C2C8172A30012FD4E /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE4B2C8172A30012FD4E /* DateTests.swift */; };
 		93E7833D2C77510400684BEC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7833C2C77510400684BEC /* HomeView.swift */; };
 		93E7833F2C77510D00684BEC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7833E2C77510D00684BEC /* HomeViewModel.swift */; };
 		93E783432C77519F00684BEC /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783422C77519F00684BEC /* CircleButton.swift */; };
@@ -93,6 +96,9 @@
 		93DCDE3F2C8010130012FD4E /* GetCoinDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoinDetail.swift; sourceTree = "<group>"; };
 		93DCDE422C801F750012FD4E /* FormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
 		93DCDE452C8164070012FD4E /* PortolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		93DCDE472C8167460012FD4E /* CryptoChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoChart.swift; sourceTree = "<group>"; };
+		93DCDE492C81707D0012FD4E /* Date+toArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+toArray.swift"; sourceTree = "<group>"; };
+		93DCDE4B2C8172A30012FD4E /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		93E7833C2C77510400684BEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		93E7833E2C77510D00684BEC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		93E783422C77519F00684BEC /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 		93DCDE412C801F590012FD4E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				93DCDE4B2C8172A30012FD4E /* DateTests.swift */,
 				93DCDE422C801F750012FD4E /* FormatterTests.swift */,
 			);
 			path = Extensions;
@@ -255,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				93DCDE342C7F15F70012FD4E /* ColumnHeader.swift */,
+				93DCDE472C8167460012FD4E /* CryptoChart.swift */,
 				93E783672C78B22C00684BEC /* RemoteImage.swift */,
 				93701DE42C7C922C00C020F5 /* SearchBar.swift */,
 				93701DEC2C7DAB8400C020F5 /* StatisticsRow.swift */,
@@ -311,6 +319,7 @@
 				93E783632C78939D00684BEC /* Encodable+toQueryItems.swift */,
 				93E783612C787E9000684BEC /* JSONDecorder+JSONEncoder.swift */,
 				93701DE62C7C954800C020F5 /* UIApplication+EndEditing.swift */,
+				93DCDE492C81707D0012FD4E /* Date+toArray.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -478,6 +487,7 @@
 				93E7833D2C77510400684BEC /* HomeView.swift in Sources */,
 				93E783622C787E9000684BEC /* JSONDecorder+JSONEncoder.swift in Sources */,
 				93E783502C78306F00684BEC /* CoinCell.swift in Sources */,
+				93DCDE4A2C81707D0012FD4E /* Date+toArray.swift in Sources */,
 				93DCDE402C8010130012FD4E /* GetCoinDetail.swift in Sources */,
 				93701DEB2C7DA83F00C020F5 /* StatisticCell.swift in Sources */,
 				93701DF62C7DB8AB00C020F5 /* PortolioViewModel.swift in Sources */,
@@ -504,6 +514,7 @@
 				93E7834D2C782D9300684BEC /* Coin.swift in Sources */,
 				93701DE52C7C922C00C020F5 /* SearchBar.swift in Sources */,
 				93E783562C78392500684BEC /* Device.swift in Sources */,
+				93DCDE482C8167460012FD4E /* CryptoChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +526,7 @@
 				93E783592C78659C00684BEC /* CoinTests.swift in Sources */,
 				93DCDE432C801F750012FD4E /* FormatterTests.swift in Sources */,
 				93978C292C774E110070F3D4 /* crypto_appTests.swift in Sources */,
+				93DCDE4C2C8172A30012FD4E /* DateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
