@@ -35,6 +35,9 @@
 		93DCDE4A2C81707D0012FD4E /* Date+toArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE492C81707D0012FD4E /* Date+toArray.swift */; };
 		93DCDE4C2C8172A30012FD4E /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE4B2C8172A30012FD4E /* DateTests.swift */; };
 		93DCDE4F2C82F6FE0012FD4E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE4E2C82F6FE0012FD4E /* SettingsView.swift */; };
+		93DCDE522C82FE140012FD4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DCDE512C82FE140012FD4E /* LaunchScreen.storyboard */; };
+		93DCDE542C8302590012FD4E /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE532C8302590012FD4E /* LaunchView.swift */; };
+		93DCDE562C8302670012FD4E /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCDE552C8302670012FD4E /* LaunchViewModel.swift */; };
 		93E7833D2C77510400684BEC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7833C2C77510400684BEC /* HomeView.swift */; };
 		93E7833F2C77510D00684BEC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7833E2C77510D00684BEC /* HomeViewModel.swift */; };
 		93E783432C77519F00684BEC /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E783422C77519F00684BEC /* CircleButton.swift */; };
@@ -101,6 +104,9 @@
 		93DCDE492C81707D0012FD4E /* Date+toArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+toArray.swift"; sourceTree = "<group>"; };
 		93DCDE4B2C8172A30012FD4E /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		93DCDE4E2C82F6FE0012FD4E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		93DCDE512C82FE140012FD4E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93DCDE532C8302590012FD4E /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		93DCDE552C8302670012FD4E /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		93E7833C2C77510400684BEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		93E7833E2C77510D00684BEC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		93E783422C77519F00684BEC /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
@@ -249,11 +255,22 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		93DCDE502C82FE020012FD4E /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				93DCDE512C82FE140012FD4E /* LaunchScreen.storyboard */,
+				93DCDE532C8302590012FD4E /* LaunchView.swift */,
+				93DCDE552C8302670012FD4E /* LaunchViewModel.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		93E7833A2C7750F300684BEC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				93DCDE362C7F22F80012FD4E /* Detail */,
 				93E7833B2C7750F900684BEC /* Home */,
+				93DCDE502C82FE020012FD4E /* Launch */,
 				93701DF02C7DB4C100C020F5 /* Portolio */,
 				93DCDE4D2C82F6ED0012FD4E /* Settings */,
 			);
@@ -467,6 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DCDE522C82FE140012FD4E /* LaunchScreen.storyboard in Resources */,
 				93978C1F2C774E110070F3D4 /* Preview Assets.xcassets in Resources */,
 				93978C1C2C774E110070F3D4 /* Assets.xcassets in Resources */,
 			);
@@ -524,9 +542,11 @@
 				93E7833F2C77510D00684BEC /* HomeViewModel.swift in Sources */,
 				93DCDE3A2C7F25500012FD4E /* CoinDetail.swift in Sources */,
 				93E7834D2C782D9300684BEC /* Coin.swift in Sources */,
+				93DCDE542C8302590012FD4E /* LaunchView.swift in Sources */,
 				93701DE52C7C922C00C020F5 /* SearchBar.swift in Sources */,
 				93E783562C78392500684BEC /* Device.swift in Sources */,
 				93DCDE482C8167460012FD4E /* CryptoChart.swift in Sources */,
+				93DCDE562C8302670012FD4E /* LaunchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +720,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -729,6 +750,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

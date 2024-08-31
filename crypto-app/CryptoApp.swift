@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct CryptoApp: App {
-    
+    @StateObject private var launchViewModel = LaunchViewModel()
+
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: UIColor(.accent)
@@ -22,17 +23,26 @@ struct CryptoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GeometryReader { geometry in
-                ContentView()
-                    .environment(
-                        \.device,
-                         .init(
-                            screenWidth: geometry.size.width,
-                            screenHeight: geometry.size.height,
-                            insets: geometry.safeAreaInsets
-                         )
-                    )
+            ZStack {
+                GeometryReader { geometry in
+                    ContentView()
+                        .environment(
+                            \.device,
+                             .init(
+                                screenWidth: geometry.size.width,
+                                screenHeight: geometry.size.height,
+                                insets: geometry.safeAreaInsets
+                             )
+                        )
+                }
+                if launchViewModel.showLaunchView {
+                    LaunchView()
+                        .environmentObject(launchViewModel)
+                        .transition(.move(edge: .leading))
+                        .zIndex(2)
+                }
             }
+            .animation(.spring, value: launchViewModel.showLaunchView)
         }
     }
 }
