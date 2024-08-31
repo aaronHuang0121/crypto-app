@@ -39,9 +39,13 @@ struct HomeView: View {
             }
         )
         .animation(.spring, value: viewModel.showPortolio)
-        .sheet(isPresented: $viewModel.showPortolioView) {
-            PortolioView()
-                .environmentObject(viewModel)
+        .sheet(item: $viewModel.showSheet) { sheet in
+            if case .portolio = sheet {
+                PortolioView()
+                    .environmentObject(viewModel)
+            } else {
+                SettingsView()
+            }
         }
     }
 }
@@ -54,7 +58,9 @@ extension HomeView {
                 systemName: viewModel.showPortolio ? "plus" : "info",
                 action: {
                     if viewModel.showPortolio {
-                        viewModel.showPortolioView.toggle()
+                        viewModel.showSheet = .portolio
+                    } else {
+                        viewModel.showSheet = .settings
                     }
                 }
             )

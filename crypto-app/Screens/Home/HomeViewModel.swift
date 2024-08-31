@@ -11,7 +11,6 @@ import SwiftUI
 
 final class HomeViewModel: ObservableObject {
     @Published var showPortolio: Bool = false
-    @Published var showPortolioView: Bool = false
     @Published var allCoins: [Coin] = []
     @Published var filterCoins: [Coin] = []
     @Published var portolioCoins: [Coin] = []
@@ -19,6 +18,7 @@ final class HomeViewModel: ObservableObject {
     @Published var searchKey: String = ""
     @Published var isLoading: Bool = false
     @Published var sortOption: SortOption = .rank(false)
+    @Published var showSheet: Sheets? = nil
 
     var cancellables = Set<AnyCancellable>()
     
@@ -214,5 +214,12 @@ extension HomeViewModel {
                 return reversed
             }
         }
+    }
+    
+    enum Sheets: String, Identifiable {
+        case portolio
+        case settings
+        
+        var id: String { self.rawValue }
     }
 }

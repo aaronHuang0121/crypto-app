@@ -71,9 +71,6 @@ extension PortolioView {
                                     viewModel.onSelectCoin(coin)
                                 })
                         )
-                        .onAppear {
-                            print(coin.id)
-                        }
                 }
             }
             .padding(.vertical, 4)
