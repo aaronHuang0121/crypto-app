@@ -20,7 +20,8 @@ struct DetailView: View {
                 
                 StatisticSection(
                     title: "Overview",
-                    statistics: viewModel.overviews
+                    statistics: viewModel.overviews,
+                    showDescription: true
                 )
                 
                 StatisticSection(
@@ -28,6 +29,18 @@ struct DetailView: View {
                     statistics: viewModel.additionals
                 )
                 
+                VStack(alignment: .leading, spacing: 10) {
+                    if let websiteURL = viewModel.websiteURL {
+                        Link("Website", destination: websiteURL)
+                    }
+                    
+                    if let redditURL = viewModel.redditURL {
+                        Link("Reddit", destination: redditURL)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundStyle(.blue)
+                .font(.headline)
             }
             .padding()
         }
@@ -62,7 +75,11 @@ extension DetailView {
     }
     
     @ViewBuilder
-    private func StatisticSection(title: String, statistics: [Statistic]) -> some View {
+    private func StatisticSection(
+        title: String,
+        statistics: [Statistic],
+        showDescription: Bool = false
+    ) -> some View {
         Text(title)
             .font(.title)
             .bold()
@@ -70,6 +87,29 @@ extension DetailView {
             .frame(maxWidth: .infinity, alignment: .leading)
         
         Divider()
+        
+        if showDescription, let description = viewModel.description {
+            VStack(alignment: .leading) {
+                Text(description)
+                    .lineLimit(viewModel.showFullDescription ? nil : 3)
+                    .font(.callout)
+                    .foregroundStyle(.secondaryText)
+                
+                Button(
+                    action: {
+                        viewModel.showFullDescription.toggle()
+                    },
+                    label: {
+                        Text(viewModel.showFullDescription ? "Less" : "Read more...")
+                    }
+                )
+                .font(.caption)
+                .fontWeight(.bold)
+                .foregroundStyle(.blue)
+                .padding(.vertical, 4)
+            }
+            .animation(.easeInOut, value: viewModel.showFullDescription)
+        }
         
         StatisticsGrid(statistics)
     }

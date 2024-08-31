@@ -13,6 +13,10 @@ class DetailViewModel: ObservableObject {
     @Published var detail: CoinDetail? = nil
     @Published var overviews: [Statistic] = []
     @Published var additionals: [Statistic] = []
+    @Published var description: String? = nil
+    @Published var websiteURL: URL? = nil
+    @Published var redditURL: URL? = nil
+    @Published var showFullDescription: Bool = false
     
     var cancellables = Set<AnyCancellable>()
     
@@ -44,6 +48,13 @@ extension DetailViewModel {
                     guard let self else { return }
                     self.detail = detail
                     self.additionals = self.createAdditionalArray(detail: detail, coin: coin)
+                    self.description = detail.readableDescription
+                    if let websiteURL = detail.links?.homepage?.first {
+                        self.websiteURL = URL(string: websiteURL)
+                    }
+                    if let redditURL = detail.links?.subredditUrl {
+                        self.redditURL = URL(string: redditURL)
+                    }
                 }
             )
             .store(in: &cancellables)

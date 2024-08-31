@@ -29,6 +29,15 @@ struct CoinDetail: Codable, Identifiable {
         case description
         case links
     }
+    
+    var readableDescription: String? {
+        self.description?.en?.replacingOccurrences(
+            of: "<[^>]+>",
+            with: "",
+            options: .regularExpression,
+            range: nil
+        )
+    }
 }
 
 extension CoinDetail {
