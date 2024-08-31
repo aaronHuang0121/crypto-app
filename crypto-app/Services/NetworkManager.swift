@@ -63,7 +63,6 @@ final class NetworkManager: RestProtocol {
         switch makeRequest(httpMethod: httpMethod, endpoint: endpoint, params: params) {
         case .success(let request):
             return self.session.dataTaskPublisher(for: request)
-                .subscribe(on: DispatchQueue.global(qos: .default))
                 .tryMap({ (data, response) in
                     guard let httpResponse = response as? HTTPURLResponse else {
                         throw RestError.invalidResponse(0)
@@ -75,8 +74,9 @@ final class NetworkManager: RestProtocol {
 
                     return data
                 })
-                .receive(on: DispatchQueue.main)
+                .retry(3)
                 .decode(type: R.self, decoder: JSONDecoder.default)
+                .receive(on: DispatchQueue.main)
                 .mapError({ error in
                     if let error = error as? RestError {
                         return error
