@@ -21,8 +21,12 @@ struct HomeView: View {
 
             Group {
                 if viewModel.showPortolio {
-                    CoinList(viewModel.portolioCoins)
-                        .transition(.move(edge: .trailing))
+                    if viewModel.portolioCoins.isEmpty, viewModel.searchKey.isEmpty {
+                        PortolioEmptyText()
+                    } else {
+                        CoinList(viewModel.portolioCoins)
+                            .transition(.move(edge: .trailing))
+                    }
                 } else {
                     CoinList(viewModel.filterCoins)
                         .transition(.move(edge: .leading))
@@ -158,6 +162,16 @@ extension HomeView {
                 }
             )
         }
+    }
+
+    @ViewBuilder
+    private func PortolioEmptyText() -> some View {
+        Text("You haven't added any coins to your portfolio. Click the + Button to get start.")
+            .font(.callout)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .foregroundStyle(.accent)
+            .padding(50)
     }
 }
 
