@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class DetailViewModel: ObservableObject {
-    @Published var coin: Coin
+    let coin: Coin
     @Published var detail: CoinDetail? = nil
     @Published var overviews: [Statistic] = []
     @Published var additionals: [Statistic] = []
@@ -25,17 +25,7 @@ class DetailViewModel: ObservableObject {
 extension DetailViewModel {
     private func addSubscribers(coin: Coin) {
         getCoinDetail(coin: coin)
-        
-        $detail
-            .combineLatest($coin)
-            .map(mapStatistics)
-            .sink(
-                receiveValue: { [weak self] (overviews, additionals) in
-                    self?.overviews = overviews
-                    self?.additionals = additionals
-                }
-            )
-            .store(in: &cancellables)
+        self.overviews = createOverviewStatistics(coin: coin)
     }
 
     private func getCoinDetail(coin: Coin) {
@@ -53,16 +43,10 @@ extension DetailViewModel {
                 receiveValue: { [weak self] detail in
                     guard let self else { return }
                     self.detail = detail
+                    self.additionals = self.createAdditionalArray(detail: detail, coin: coin)
                 }
             )
             .store(in: &cancellables)
-    }
-
-    private func mapStatistics( _ detail: CoinDetail?, _ coin: Coin) -> (overviews: [Statistic], additionals: [Statistic]) {
-        return (
-            createOverviewStatistics(coin: coin),
-            createAdditionalArray(detail: detail, coin: coin)
-        )
     }
     
     private func createOverviewStatistics(coin: Coin) -> [Statistic] {
