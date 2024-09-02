@@ -1,6 +1,6 @@
 # Crypto App
 
-This app is built following the [@SwiftfulThinking](https://www.swiftful-thinking.com/) tutorial. It allows users to check cryptocurrency information and manage their coin portfolios.
+This app is built following the [@SwiftfulThinking](https://www.swiftful-thinking.com/) tutorial and added some custom modifications. The app allows users to check cryptocurrency information and manage their coin portfolios.
 
 ## Features
 ### Information
