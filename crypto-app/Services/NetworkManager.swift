@@ -13,7 +13,7 @@ final class NetworkManager: RestProtocol {
     static let shared = NetworkManager()
     private let session: URLSession
     
-    init() {
+    private init() {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 10   // 10s
         config.urlCache = .init(
@@ -102,7 +102,6 @@ final class NetworkManager: RestProtocol {
         }
         
         return self.session.dataTaskPublisher(for: request)
-            .subscribe(on: DispatchQueue.global(qos: .default))
             .tryMap { (data, response) in
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw RestError.invalidResponse(0)
