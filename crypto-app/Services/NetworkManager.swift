@@ -55,7 +55,7 @@ final class NetworkManager: RestProtocol {
         return .success(request)
     }
 
-    func request<P: Encodable, R: Decodable>(
+    private func request<P: Encodable, R: Decodable>(
         httpMethod: String,
         endpoint: String,
         params: P?

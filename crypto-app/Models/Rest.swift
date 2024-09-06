@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import os
+import UIKit
 
 enum Rest {
     static let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Rest")
@@ -19,7 +20,7 @@ enum RestError: LocalizedError {
     case unableToComplete
     case invalidResponse(Int)
     case invalidData
-    case unknowError(Error)
+    case unknowError(any Error)
 
     var errorDescription: String? {
         switch self {
@@ -46,4 +47,10 @@ protocol RestProtocol {
     func get<R: Decodable>(
         endpoint: String
     ) -> AnyPublisher<R, RestError>
+
+    func downloadImage(
+        _ url: URL
+    ) -> AnyPublisher<UIImage, RestError>
+
+    func getImageFromCache(_ url: URL) -> UIImage?
 }
