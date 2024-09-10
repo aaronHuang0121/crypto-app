@@ -28,8 +28,8 @@ final class NetworkManager: RestProtocol {
         endpoint: String,
         params: P?
     ) -> Result<URLRequest, RestError> {
-        guard let baseURL = URL(string: Rest.baseURL), 
-              var component = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else {
+        guard let baseURL = URL(string: Rest.baseURL),
+                var component = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else {
             return .failure(.invalidURL(Rest.baseURL))
         }
         component.path = "/api/v3" + endpoint
@@ -46,12 +46,14 @@ final class NetworkManager: RestProtocol {
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod
-
+        
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         // Test token
-        request.addValue("x-cg-pro-api-key", forHTTPHeaderField: "CG-xdZphsCURzUJ7vfSbVJV6YDD")
-        
+        if let token = Bundle.main.infoDictionary?["API_TOKEN"] as? String {
+            request.addValue("x-cg-pro-api-key", forHTTPHeaderField: token)
+        }
+
         return .success(request)
     }
 

@@ -94,6 +94,7 @@
 		93978C322C774E110070F3D4 /* crypto_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crypto_appUITests.swift; sourceTree = "<group>"; };
 		93978C342C774E110070F3D4 /* crypto_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crypto_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		93B02FC22C8AB219005CAD1F /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		93CE050C2C90956D000C28BE /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		93DCDE342C7F15F70012FD4E /* ColumnHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnHeader.swift; sourceTree = "<group>"; };
 		93DCDE372C7F23020012FD4E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		93DCDE392C7F25500012FD4E /* CoinDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetail.swift; sourceTree = "<group>"; };
@@ -171,6 +172,7 @@
 		93978C0B2C774E110070F3D4 = {
 			isa = PBXGroup;
 			children = (
+				93CE050B2C909542000C28BE /* config */,
 				93978C162C774E110070F3D4 /* crypto-app */,
 				93978C272C774E110070F3D4 /* crypto-appTests */,
 				93978C312C774E110070F3D4 /* crypto-appUITests */,
@@ -238,6 +240,14 @@
 				93B02FC22C8AB219005CAD1F /* NetworkManagerTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		93CE050B2C909542000C28BE /* config */ = {
+			isa = PBXGroup;
+			children = (
+				93CE050C2C90956D000C28BE /* Debug.xcconfig */,
+			);
+			path = config;
 			sourceTree = "<group>";
 		};
 		93DCDE362C7F22F80012FD4E /* Detail */ = {
@@ -601,6 +611,7 @@
 /* Begin XCBuildConfiguration section */
 		93978C362C774E110070F3D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93CE050C2C90956D000C28BE /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -651,6 +662,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -664,6 +676,7 @@
 		};
 		93978C372C774E110070F3D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93CE050C2C90956D000C28BE /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -708,6 +721,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -720,6 +734,7 @@
 		};
 		93978C392C774E110070F3D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93CE050C2C90956D000C28BE /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -728,7 +743,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"crypto-app/Preview Content\"";
 				DEVELOPMENT_TEAM = 62AMN3F46R;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "crypto-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -750,6 +766,7 @@
 		};
 		93978C3A2C774E110070F3D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93CE050C2C90956D000C28BE /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -758,7 +775,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"crypto-app/Preview Content\"";
 				DEVELOPMENT_TEAM = 62AMN3F46R;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "crypto-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
